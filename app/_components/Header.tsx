@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { SignInButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import React from 'react'
 
@@ -43,11 +44,13 @@ function Header() {
           ))
         }
       </div>
-      <Button
-       className = 'cursor-pointer'
-      >
-        Get Started
-      </Button>
+      <SignInButton mode = 'modal'>
+        <Button
+          className = 'cursor-pointer'
+        >
+          Get Started
+        </Button>
+      </SignInButton>
     </div>
   )
 }

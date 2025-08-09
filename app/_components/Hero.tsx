@@ -1,7 +1,11 @@
+"use client"
+
 import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
+import { useUser } from '@clerk/nextjs'
 import { ArrowDown, Globe2, Landmark, Plane, Send } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const suggestions = [
@@ -24,6 +28,21 @@ const suggestions = [
 ]
 
 function Hero() {
+
+  const {user} = useUser();
+
+  const router = useRouter();
+
+  const handleOnSend = () => {
+    if(!user){
+      router.push('/sign-in');
+      return;
+    }
+
+    // Navigate to create trip planner
+
+  }
+
   return (
     <div className = 'flex items-center justify-center'>
       <div
@@ -49,7 +68,10 @@ function Hero() {
               size = {'icon'}
               className = 'absolute bottom-2 right-2 rounded-full cursor-pointer'
             >
-               <Send className = 'h-4 w-4'/>
+               <Send 
+                 className = 'h-4 w-4'
+                 onClick = {() => handleOnSend()}
+               />
             </Button>
           </div>
         </div>
