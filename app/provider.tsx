@@ -10,7 +10,6 @@ function Provider({
   return (
     <div>
       <Header/>
-      <Hero/>
       {children}
     </div>
   )
