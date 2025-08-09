@@ -18,7 +18,7 @@ const menuOptions = [
 
 function Header() {
   return (
-    <div className = 'flex justify-between px-3 items-center'>
+    <div className = 'flex justify-between pt-3 px-3 pb-2 items-center border-b-1'>
       <div className = 'flex items-center gap-1'>
         <Image
           src = {'/logo.png'}
