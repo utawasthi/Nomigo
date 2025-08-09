@@ -1,6 +1,7 @@
+import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
-import { Globe2, Landmark, Plane, Send } from 'lucide-react'
+import { ArrowDown, Globe2, Landmark, Plane, Send } from 'lucide-react'
 import React from 'react'
 
 const suggestions = [
@@ -65,8 +66,18 @@ function Hero() {
             ))
           }
         </div>
+        <h2 className = 'my-7 mt-14 flex gap-2 text-center'>
+          Not sure where to start ? 
+          <strong>See how it works</strong> 
+        </h2>
+        <HeroVideoDialog
+          className="block dark:hidden p-4 m-4s"
+          animationStyle="from-center"
+          videoSrc="https://www.youtube.com/watch?v=T-oy3tsCJas&t=304s"
+          thumbnailSrc="https://i.ytimg.com/vi/T-oy3tsCJas/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDP9rMhV1xiha48of092SDJHiBq9g"
+          thumbnailAlt="I wanted to see Germany"
+        />
       </div>
-     
     </div>
   )
 }
