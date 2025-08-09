@@ -3,8 +3,8 @@ import { Manrope } from 'next/font/google';
 
 
 import "./globals.css";
-import Provider from "./provider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -26,9 +26,9 @@ export default function RootLayout({
       <html lang="en">
         <body className = {manrope.className}
         >
-          <Provider>
+          <ConvexClientProvider>
             {children}
-          </Provider>
+          </ConvexClientProvider>
         </body>
       </html>
     </ClerkProvider>
