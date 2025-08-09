@@ -1,28 +1,24 @@
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
-import { Globe2, Send } from 'lucide-react'
+import { Globe2, Landmark, Plane, Send } from 'lucide-react'
 import React from 'react'
 
 const suggestions = [
   {
     title : 'Create new trip',
-    icon : <Globe2 className = 'text-blue-400 h-5 w-5'/>
+    icon : <Globe2 className = 'text-blue-400 h-4 w-4'/>
   },
    {
-    title : 'Create new trip',
-    icon : <Globe2 className = 'text-blue-400 h-5 w-5'/>
+    title : 'Inspire me where to go',
+    icon : <Plane className = 'text-blue-400 h-4 w-4'/>
   },
    {
-    title : 'Create new trip',
-    icon : <Globe2 className = 'text-blue-400 h-5 w-5'/>
+    title : 'Discover hidden gems',
+    icon : <Landmark className = 'text-blue-400 h-4 w-4'/>
   },
    {
-    title : 'Create new trip',
-    icon : <Globe2 className = 'text-blue-400 h-5 w-5'/>
-  },
-   {
-    title : 'Create new trip',
-    icon : <Globe2 className = 'text-blue-400 h-5 w-5'/>
+    title : 'Adventure destination',
+    icon : <Globe2 className = 'text-blue-400 h-4 w-4'/>
   }
 ]
 
@@ -56,12 +52,15 @@ function Hero() {
             </Button>
           </div>
         </div>
-        <div>
+        <div className = 'flex gap-5 justify-center items-center'>
           {
             suggestions.map((item , idx) => (
-              <div key = {idx}>
+              <div 
+                key = {idx}
+                className = 'flex items-center gap-2 border rounded-full mt-2 p-2 hover:bg-[#8FC1E3] cursor-pointer'
+              >
                 {item.icon}
-                <h2>{item.title}</h2>
+                <h2 className = 'text-sm'>{item.title}</h2>
               </div>
             ))
           }
