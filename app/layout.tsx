@@ -3,7 +3,7 @@ import { Manrope } from 'next/font/google';
 
 
 import "./globals.css";
-
+import Provider from "./provider";
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -24,7 +24,9 @@ export default function RootLayout({
     <html lang="en">
       <body className = {manrope.className}
       >
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   );
