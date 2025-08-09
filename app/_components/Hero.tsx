@@ -66,9 +66,9 @@ function Hero() {
             ))
           }
         </div>
-        <h2 className = 'my-7 mt-14 flex gap-2 text-center'>
+        <h2 className = 'my-7 mt-14 flex justify-center gap-2 '>
           Not sure where to start ? 
-          <strong>See how it works</strong> 
+          <strong>See how it works</strong> <ArrowDown/>
         </h2>
         <HeroVideoDialog
           className="block dark:hidden p-4 m-4s"
