@@ -40,6 +40,7 @@ function Hero() {
     }
 
     // Navigate to create trip planner
+    router.push('/create-new-trip');
 
   }
 

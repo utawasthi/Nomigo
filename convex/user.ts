@@ -1,6 +1,5 @@
 import { v } from "convex/values";
 import { mutation } from "./_generated/server";
-import { q } from "motion/react-client";
 
 export const CreateNewUser = mutation({
   args : {

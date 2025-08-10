@@ -57,7 +57,7 @@ function Header() {
           </Button>
         </SignInButton>
         : 
-        <Link href = {'/create-trip'}>
+        <Link href = {'/create-new-trip'}>
           <Button>Create New Trip</Button>
         </Link>
       }
