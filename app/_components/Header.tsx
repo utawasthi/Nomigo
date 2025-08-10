@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
-import { SignInButton } from '@clerk/nextjs'
+import { SignInButton, useUser } from '@clerk/nextjs'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const menuOptions = [
@@ -18,6 +19,9 @@ const menuOptions = [
 ]
 
 function Header() {
+
+  const {user} = useUser();
+
   return (
     <div className = 'flex justify-between pt-3 px-3 pb-2 items-center border-b-1'>
       <div className = 'flex items-center gap-1'>
@@ -44,13 +48,19 @@ function Header() {
           ))
         }
       </div>
-      <SignInButton mode = 'modal'>
-        <Button
-          className = 'cursor-pointer'
-        >
-          Get Started
-        </Button>
-      </SignInButton>
+      {
+        !user ? <SignInButton mode = 'modal'>
+          <Button
+            className = 'cursor-pointer'
+          >
+            Get Started
+          </Button>
+        </SignInButton>
+        : 
+        <Link href = {'/create-trip'}>
+          <Button>Create New Trip</Button>
+        </Link>
+      }
     </div>
   )
 }
