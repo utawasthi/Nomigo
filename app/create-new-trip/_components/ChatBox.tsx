@@ -6,10 +6,12 @@ import axios from 'axios'
 import { Loader, Send } from 'lucide-react'
 import React, { useState } from 'react'
 import EmptyChat from './EmptyChat'
+import GroupSize from './GroupSize'
 
 export interface Msg {
   role : string;
   content : string;
+  ui? : string;
 }
 
 function ChatBox() {
@@ -18,10 +20,22 @@ function ChatBox() {
   const [userInput , setUserInput] = useState<string>('');
   const [loading , setLoading] = useState<boolean>(false);
 
+  const renderGenUI = (ui : string) => {
+    if(ui === 'budget'){
+
+    }
+    else if(ui === 'groupSize'){
+     return <GroupSize/>
+    }
+    else if(ui === 'tripDuration'){
+
+    }
+    return null;
+  }
+
   const handleOnSend = async () => {
     console.log("hey from handleSend")
     if(!userInput?.trim()) return;
-
     
     setUserInput('');
 
@@ -40,6 +54,7 @@ function ChatBox() {
       setMessages((prev : Msg[]) => [...prev , {
           role : 'assistant',
           content : response?.data?.resp,
+          ui : response?.data?.ui,
       }]);
 
       console.log("response ka data" , response.data.resp);
@@ -73,6 +88,7 @@ function ChatBox() {
             <div className = 'flex justify-start m-3' key = {idx}>
               <div className = 'max-w-lg bg-[#5085A5] text-white px-4 py-2 rounded-lg'>
                 {msg.content}
+                {renderGenUI(msg.ui ?? '')}
               </div>
             </div>
         ))
