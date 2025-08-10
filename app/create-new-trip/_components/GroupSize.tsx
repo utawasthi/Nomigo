@@ -31,7 +31,7 @@ const groupOptions = [{
 
 function GroupSize() {
   return (
-    <div className = 'p-3'>
+    <div className = 'p-3 grid grid-cols-2 md:grid-cols-4 gap-2 items-center mt-1'>
       {
         groupOptions.map((item) => (
           <div
