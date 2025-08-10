@@ -58,7 +58,11 @@ function Header() {
         </SignInButton>
         : 
         <Link href = {'/create-new-trip'}>
-          <Button>Create New Trip</Button>
+          <Button
+            className = 'cursor-pointer'
+          >
+            Create New Trip
+          </Button>
         </Link>
       }
     </div>
