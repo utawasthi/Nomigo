@@ -13,11 +13,25 @@ import GroupSize from './GroupSize'
 import Budget from './Budget'
 import TripDuration from './TripDuration'
 import FinalTrip from './FinalTrip';
+import { useMutation } from 'convex/react';
+import { api } from '@/convex/_generated/api';
+import { useUserDetail } from '@/app/provider';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface Msg {
   role : string;
   content : string;
   ui? : string;
+}
+
+export interface TripInfo {
+  budget : string;
+  destination : string;
+  duration : string;
+  group_size : string;
+  hotels : any;
+  itinerary : any;
+  origin : string;
 }
 
 function ChatBox() {
@@ -26,7 +40,12 @@ function ChatBox() {
   const [userInput , setUserInput] = useState<string>('');
   const [loading , setLoading] = useState<boolean>(false);
   const [isFinal , setIsFinal] = useState<boolean>(false);
-  const [tripDetails , setTripDetails] = useState();
+  const [tripDetails , setTripDetails] = useState<TripInfo>();
+
+  const {userDetails , setUserDetails} = useUserDetail();
+  // console.log("userDetails from ChatBox ------->\n" , userDetails);
+
+  const saveTripDetail = useMutation(api.tripDetails.CreateTripDetail);
 
 
   useEffect(() => {
@@ -91,6 +110,11 @@ function ChatBox() {
       }
       else{
         setTripDetails(response?.data?.trip_plan);
+        await saveTripDetail({
+          tripDetail : response?.data?.trip_plan,
+          tripId : uuidv4(),
+          uid : userDetails?._id,
+        })
       }
 
     } catch (error) {

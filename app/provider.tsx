@@ -26,13 +26,14 @@ function Provider({
         imageUrl : user?.imageUrl,
         name : user?.fullName + "",
       });
-      setUserDetails(user);
+      setUserDetails(res);
       // console.log(res);
     }
   }
 
   useEffect(() => {
-    user && createNewUser()
+    user && createNewUser();
+    console.log('user id' , user?.id);
   } , [user]);
 
   return (
