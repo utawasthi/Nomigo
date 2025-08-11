@@ -25,7 +25,7 @@ function ChatBox() {
 
     }
     else if(ui === 'groupSize'){
-     return <GroupSize/>
+     return <GroupSize handleSelectOption = {(v : string) => setUserInput(v)}/>
     }
     else if(ui === 'tripDuration'){
 
