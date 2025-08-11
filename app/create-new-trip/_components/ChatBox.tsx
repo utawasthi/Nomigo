@@ -7,6 +7,8 @@ import { Loader, Send } from 'lucide-react'
 import React, { useState } from 'react'
 import EmptyChat from './EmptyChat'
 import GroupSize from './GroupSize'
+import Budget from './Budget'
+import TripDuration from './TripDuration'
 
 export interface Msg {
   role : string;
@@ -22,13 +24,16 @@ function ChatBox() {
 
   const renderGenUI = (ui : string) => {
     if(ui === 'budget'){
-
+      return <Budget handleSelectOption = {(v : string) => setUserInput(v)}/>
     }
     else if(ui === 'groupSize'){
      return <GroupSize handleSelectOption = {(v : string) => setUserInput(v)}/>
     }
-    else if(ui === 'tripDuration'){
-
+    else if(ui === 'TripDuration'){
+      return (
+        <TripDuration handleSelectOption = {(v : string) => setUserInput(v)}/>
+      )
+      
     }
     return null;
   }
@@ -72,6 +77,8 @@ function ChatBox() {
 
       {
         !messages.length && <EmptyChat handleSelectOption = {(v : string) => setUserInput(v)}/>
+
+        // <TripDuration handleSelectOption={(v : string) => setUserInput(v)} />
       }
 
      {/* Display Message */}
