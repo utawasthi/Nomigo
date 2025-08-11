@@ -1,9 +1,11 @@
 import { Timeline } from "@/components/ui/timeline";
-import { Hotel } from "./ChatBox";
+import { Activity, Hotel } from "./ChatBox";
 import Image from "next/image";
 import { Clock, ExternalLink, Star, Ticket, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import HotelCard from "./HotelCard";
+import PlaceCard from "./PlaceCard";
 
 const trip_data = {
   budget: "Luxury",
@@ -287,49 +289,7 @@ function Itinerary() {
       content: (
         <div className = 'flex flex-col gap-4' key = {1}>
           {trip_data.hotels.map((hotel : Hotel , idx) => (
-            <div 
-              key = {idx}
-              className = 'flex flex-col gap-2'
-            >
-             <Image
-                src = {'/demo-hotel.jpg'}
-                alt = {'demo-hotel'}
-                height = {200}
-                width = {400}
-                className = 'h-[200px] w-[400px] object-cover rounded-xl shadow-xl'
-              />
-              <h2
-                className = 'text-gray-500 font-medium'
-              >
-                {hotel?.hotel_name}
-              </h2>
-              <h2
-                className = 'text-gray-500 font-medium'
-              >
-                {hotel?.hotel_address}
-              </h2>
-              <div 
-                className = 'text-gray-500 font-medium flex flex-col gap-2'
-              >
-                <p className = 'text-black flex items-center gap-3'>
-                  <Wallet className = 'text-red-900'/> 
-                  {hotel?.price_per_night}
-                </p>
-                <p className = 'text-green-800 flex items-center gap-3'>
-                  <Star className = 'text-yellow-400'/> {hotel?.rating}
-                </p>
-                {/* <p className = 'text-sm font-light'>
-                  {hotel?.description}
-                </p> */}
-              </div>
-              <Link 
-                href = {'https://www.google.com/maps/search/?api=1&query=' + hotel?.hotel_name} target = '_blank'
-              >
-                <Button className = 'mt-1 cursor-pointer w-3/4'>
-                  View <ExternalLink/>
-                </Button>
-              </Link>
-            </div>
+           <HotelCard hotel = {hotel} key = {idx}/>
           ))}
         </div>
       ),
@@ -343,40 +303,8 @@ function Itinerary() {
           </p>
           <div className = 'grid grid-cols-1 md:grid-cols-2 gap-4'>
             {
-              dayData?.activities.map((item , idx) => (
-                <div 
-                  key = {idx}
-                  className = 'flex flex-col gap-3'
-                >
-                  <Image
-                    src = {'/demo-hotel.jpg'}
-                    alt = {'deme-hotel'}
-                    height = {150}
-                    width = {250}
-                    className = 'h-[150px] w-[250px] object-cover rounded-xl'
-                  />
-                  <h2 className = 'font-medium text-lg text-gray-500'>
-                    {item?.place_name}
-                  </h2>
-                  <p className = 'font-light text-gray-700 line-clamp-2 text-sm'>
-                    {item?.place_details}
-                  </p>
-                  <h2 className = 'text-[#687864] font-medium text-md'>
-                    {item?.ticket_pricing}
-                  </h2>
-                  <h2 className = 'flex items-center gap-2 text-gray-500 text-sm'>
-                    <Clock size = {17}/> {item?.time_travel_each_location}
-                  </h2>
-                  <Link 
-                    href = {`https://www.google.com/maps/search/?api=1&query=${item?.place_name}`} target = '_blank'
-                  >
-                    <Button
-                      className = 'cursor-pointer w-full'
-                    >
-                      View <ExternalLink/>
-                    </Button>
-                  </Link>
-                </div>
+              dayData?.activities.map((item : Activity , idx) => (
+                <PlaceCard item = {item} key = {idx}/>
               ))
             }
           </div>
