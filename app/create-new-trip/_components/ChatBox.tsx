@@ -7,11 +7,12 @@ import rehypeHighlight from "rehype-highlight";
 import { Textarea } from '@/components/ui/textarea'
 import axios from 'axios'
 import { Loader, Send } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import EmptyChat from './EmptyChat'
 import GroupSize from './GroupSize'
 import Budget from './Budget'
 import TripDuration from './TripDuration'
+import FinalTrip from './FinalTrip';
 
 export interface Msg {
   role : string;
@@ -24,6 +25,18 @@ function ChatBox() {
   const [messages , setMessages] = useState<Msg[]>([]);
   const [userInput , setUserInput] = useState<string>('');
   const [loading , setLoading] = useState<boolean>(false);
+  const [isFinal , setIsFinal] = useState<boolean>(false);
+  const [tripDetails , setTripDetails] = useState();
+
+
+  useEffect(() => {
+    const lastMsg = messages[messages.length - 1];
+    if(lastMsg?.ui === 'final'){
+      setIsFinal(true);
+      setUserInput('Ok , great!');
+      handleOnSend();
+    }
+  } , [messages]);
 
   const renderGenUI = (ui : string) => {
     if(ui === 'budget'){
@@ -38,44 +51,55 @@ function ChatBox() {
       )
     }
     else if(ui === 'final'){
-      
+     return  <FinalTrip disable = {!tripDetails}/>
     }
     return null;
   }
 
   const handleOnSend = async () => {
-    console.log("hey from handleSend")
-    if(!userInput?.trim()) return;
-    
+    if (!userInput?.trim()) return;
+
+    const newMsg: Msg = { role: 'user', content: userInput };
+    setMessages((prev) => [...prev, newMsg]);
     setUserInput('');
 
-    const newMsg : Msg = {
-      role : 'user',
-      content : userInput,
-    }
-
-    try{
+    try {
       setLoading(true);
-      setMessages((prev : Msg[]) => [...prev , newMsg]);
-      const response = await axios.post('/api/ai-model' ,{
-        messages : [...messages , newMsg],
+
+      // Create a clean version for API (no UI field)
+      const cleanMessages = [...messages, newMsg].map(({ role, content }) => ({
+        role,
+        content
+      }));
+
+      const response = await axios.post('/api/ai-model', {
+        messages: cleanMessages, // send only allowed fields
+        isFinal
       });
 
-      setMessages((prev : Msg[]) => [...prev , {
-          role : 'assistant',
-          content : response?.data?.resp,
-          ui : response?.data?.ui,
-      }]);
+      console.log("response from model --> \n" , response.data);
 
-      console.log("response ka data" , response.data.resp);
-    }
-    catch(error){
-      console.log("error aayi hai" , error);
-    }
-    finally{
+      if (!isFinal) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: 'assistant',
+            content: response.data?.resp,
+            ui: response.data?.ui
+          }
+        ]);
+      }
+      else{
+        setTripDetails(response?.data?.trip_plan);
+      }
+
+    } catch (error) {
+      console.error('Error sending message:', error);
+    } finally {
       setLoading(false);
     }
-  }
+  };
+
   
   return (
     <div className = 'h-[85vh] flex flex-col'>
