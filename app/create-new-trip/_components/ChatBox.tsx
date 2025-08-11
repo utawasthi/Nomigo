@@ -96,7 +96,7 @@ function ChatBox() {
 
       {
         loading &&  
-        <div className = 'flex justify-start m-3'>
+        <div className = 'flex justify-start m-5'>
           <div className = 'max-w-lg bg-[#5085A5] text-white px-4 py-2 rounded-lg'>
             <Loader className = 'animate-spin'/>
           </div>
