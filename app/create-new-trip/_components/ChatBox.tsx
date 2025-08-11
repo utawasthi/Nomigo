@@ -29,8 +29,8 @@ export interface TripInfo {
   destination : string;
   duration : string;
   group_size : string;
-  hotels : any;
-  itinerary : any;
+  hotels : Hotel[];
+  itinerary : ItineraryType[];
   origin : string;
 }
 
