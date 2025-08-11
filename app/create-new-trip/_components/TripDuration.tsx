@@ -8,10 +8,7 @@ function TripDuration({handleSelectOption} : {handleSelectOption : any}) {
 
   return (
     <div className = 'flex flex-col items-center justify-center bg-white/40 m-3 rounded-2xl'>
-      <div className = 'p-2 font-medium text-gray-700 my-2'>
-        How many days do you want to travel ? 
-      </div>
-      <div className = 'flex gap-6 items-center justify-center p-2 mx-2'>
+      <div className = 'flex gap-6 items-center justify-center mx-2 p-3'>
         <span 
          className = 'font-bold text-3xl cursor-pointer text-gray-900'
          onClick = {() => setDays(Math.max(0 , days - 1))}
@@ -27,7 +24,7 @@ function TripDuration({handleSelectOption} : {handleSelectOption : any}) {
         </span>
       </div>
       <Button 
-        className = 'my-3 cursor-pointer'
+        className = 'mb-2 cursor-pointer'
         onClick = {() => handleSelectOption(days + "")}
       >
         Confirm

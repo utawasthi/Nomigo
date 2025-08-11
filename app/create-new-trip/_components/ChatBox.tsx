@@ -1,6 +1,9 @@
 "use client"
 
 import { Button } from '@/components/ui/button'
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
 import { Textarea } from '@/components/ui/textarea'
 import axios from 'axios'
 import { Loader, Send } from 'lucide-react'
@@ -29,10 +32,12 @@ function ChatBox() {
     else if(ui === 'groupSize'){
      return <GroupSize handleSelectOption = {(v : string) => setUserInput(v)}/>
     }
-    else if(ui === 'TripDuration'){
+    else if(ui === 'tripDuration'){
       return (
         <TripDuration handleSelectOption = {(v : string) => setUserInput(v)}/>
       )
+    }
+    else if(ui === 'final'){
       
     }
     return null;
@@ -93,8 +98,14 @@ function ChatBox() {
             </div>
           : 
             <div className = 'flex justify-start m-3' key = {idx}>
-              <div className = 'max-w-lg bg-[#5085A5] text-white px-4 py-2 rounded-lg'>
-                {msg.content}
+              <div className = 'max-w-lg bg-[#5085A5] text-white px-4 py-2 rounded-lg leading-relaxed'>
+
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeHighlight]}
+                >
+                  {msg.content}
+                </ReactMarkdown>
                 {renderGenUI(msg.ui ?? '')}
               </div>
             </div>
