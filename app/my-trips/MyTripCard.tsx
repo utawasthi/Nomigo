@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { myTripType } from './page'
 import axios from 'axios';
+import Link from 'next/link';
 
 function MyTripCard({trip} : {trip : myTripType}) {
 
@@ -23,7 +24,10 @@ function MyTripCard({trip} : {trip : myTripType}) {
   } , [trip?.tripDetail]);
 
   return (
-    <div className = 'p-3 flex flex-col gap-2 shadow-2xl rounded-xl'>
+    <Link 
+     href = {'/view-trip/' + trip?.tripId}
+     className = 'p-3 flex flex-col gap-2 shadow-2xl rounded-xl'
+    >
       <Image
         src = {photoUrl ? photoUrl : '/demo-hotel.jpg'}
         alt = {'demo-hotel'}
@@ -40,7 +44,7 @@ function MyTripCard({trip} : {trip : myTripType}) {
         <strong className = 'text-primary'>{trip?.tripDetail?.duration}</strong> trip with <strong className = 'text-primary'>{trip?.tripDetail?.budget}</strong> budget
       </h2>
 
-      </div>
+      </Link>
   )
 }
 

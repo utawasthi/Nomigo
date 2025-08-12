@@ -28,4 +28,21 @@ export const GetUserTrips = query({
    
    return result;
   }
-})
+});
+
+export const GetTripById = query({
+  args : {
+    uid : v.id('users'),
+    tripId : v.string(),
+  },
+  handler : async (ctx , args) => {
+   const result = await ctx.db.query('trip_details_table')
+   .filter(q => q.and(
+    q.eq(q.field('uid') , args.uid) , 
+    q.eq(q.field('tripId') , args.tripId)
+   ))
+   .collect();
+   
+   return result[0];
+  }
+});
