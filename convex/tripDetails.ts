@@ -14,4 +14,17 @@ export const CreateTripDetail = mutation({
       uid : args.uid,
     })
   }
+});
+
+export const GetUserTrips = mutation({
+  args : {
+    uid : v.id('users'),
+  },
+  handler : async (ctx , args) => {
+   const result = await ctx.db.query('trip_details_table')
+   .filter(q => q.eq(q.field('uid') , args.uid))
+   .collect();
+   
+   return result;
+  }
 })
