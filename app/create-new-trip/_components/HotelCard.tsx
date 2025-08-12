@@ -1,11 +1,32 @@
+"use client"
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Hotel } from './ChatBox'
 import { ExternalLink, Star, Wallet } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import axios from 'axios'
 
 function HotelCard({hotel} : {hotel : Hotel}) {
+
+  const [photoUrl , setPhotoUrl] = useState<string>();
+
+  const GetGooglePlaceDetails = async () => {
+    const result = await axios.post('/api/google-place-detail',{
+       placeName : hotel?.hotel_name
+    });
+    console.log(result?.data);
+    // in response i get displayName , id and array of photos
+    setPhotoUrl(result?.data);
+
+  }
+
+  useEffect(() => {
+    hotel && GetGooglePlaceDetails();
+  } , [hotel]);
+
+
   return (
     <div>
       <div className = 'flex flex-col gap-2'>
