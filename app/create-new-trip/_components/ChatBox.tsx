@@ -152,11 +152,16 @@ function ChatBox() {
         setTripDetails(response?.data?.trip_plan);
         setTripDetailInfo(response?.data?.trip_plan);
         console.log("trip detail info ---> \n" , tripDetailInfo);
-        await saveTripDetail({
-          tripDetail : response?.data?.trip_plan,
-          tripId : uuidv4(),
-          uid : userDetails?._id,
-        })
+        try{
+          await saveTripDetail({
+            tripDetail : response?.data?.trip_plan,
+            tripId : uuidv4(),
+            uid : userDetails?._id,
+          })
+        }
+        catch(e){
+          console.log("error occured due to the databse --> \n" , e);
+        }
       }
 
     } catch (error) {
