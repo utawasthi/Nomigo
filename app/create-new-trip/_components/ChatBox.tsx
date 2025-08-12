@@ -167,7 +167,7 @@ function ChatBox() {
   };
 
   return (
-    <div className = 'h-[85vh] flex flex-col'>
+    <div className = 'h-[88vh] flex flex-col'>
 
       {
         !messages.length && <EmptyChat handleSelectOption = {(v : string) => setUserInput(v)}/>

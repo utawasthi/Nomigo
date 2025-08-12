@@ -3,7 +3,7 @@
 import { Timeline } from "@/components/ui/timeline";
 import { Activity, Hotel, TripInfo } from "./ChatBox";
 import Image from "next/image";
-import { Clock, ExternalLink, Star, Ticket, Wallet } from "lucide-react";
+import { ArrowLeft, Clock, ExternalLink, Star, Ticket, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import HotelCard from "./HotelCard";
@@ -324,8 +324,23 @@ function Itinerary() {
   ];
 
   return (
-    <div className="relative w-full overflow-auto h-[95vh]">
-      {trip_data && <Timeline data={data} trip_data={trip_data} />}
+    <div className="relative w-full overflow-auto h-[100vh] rounded-2xl">
+      {trip_data ? <Timeline data={data} trip_data={trip_data} /> 
+       : 
+       <div className = 'relative'>
+          <Image
+            src = {'/banner.jpg'}
+            alt = {'banner-image'}
+            height = {800}
+            width = {800} 
+            className = 'h-[700px] w-[900px] lg:h-[615px] lg:w-[800px] object-cover shadow-xl rounded-2xl'
+          />
+          <h2 className = 'absolute flex items-center gap-2 bottom-5 left-5 text-white text-2xl font-bold tracking-wider font-'>
+            <ArrowLeft/> 
+            <p>Beyond Destinations — Towards Meaning...</p>
+          </h2>
+       </div>
+      }
     </div>
   );
 }
