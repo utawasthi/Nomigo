@@ -1,15 +1,36 @@
+"use client"
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Activity } from './ChatBox'
 import { Clock, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import axios from 'axios'
 
 function PlaceCard({item} : {item : Activity}) {
+
+  const [photoUrl , setPhotoUrl] = useState<string>();
+
+  const GetGooglePlaceDetails = async () => {
+    const result = await axios.post('/api/google-place-detail',{
+      placeName : item?.place_name + ":" + item?.place_address,
+    });
+    console.log(result?.data);
+    // in response i get displayName , id and array of photos
+    if(result?.data?.error) console.log("error aa gyi --> \n" , result?.data?.error);
+    else setPhotoUrl(result?.data);
+  }
+
+  useEffect(() => {
+    item && GetGooglePlaceDetails();
+  } , [item]);
+
+
   return (
     <div className = 'flex flex-col gap-3'>
       <Image
-        src = {'/demo-hotel.jpg'}
+        src = {photoUrl ? photoUrl : '/demo-hotel.jpg'}
         alt = {'deme-hotel'}
         height = {150}
         width = {250}
