@@ -9,8 +9,9 @@ import { useUserDetail } from '../provider';
 import { TripInfo } from '../create-new-trip/_components/ChatBox';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import MyTripCard from './MyTripCard';
 
-type myTripType = {
+export type myTripType = {
   tripId : string;
   tripDetail : TripInfo;
 }
@@ -39,7 +40,7 @@ function MyTrips() {
   } , [userDetails]); 
 
   return (
-    <div className = 'px-10 p-10 md:px-24 lg:px-48'>
+    <div className = 'p-5 md:px-10 lg:px-20'>
       <h2 className = 'font-bold text-2xl'>
         My Trips
       </h2>
@@ -57,23 +58,10 @@ function MyTrips() {
         </div>
       }
 
-      <div>
+      <div className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-6'>
         {
           myTrips.map((trip , idx) => (
-            <div key = {idx}>
-              <Image
-                src = {'/demo-hotel.jpg'}
-                alt = {'demo-hotel'}
-                height = {400}
-                width = {400}
-                className = 'rounded-xl object-cover'
-              />
-              <div className="flex items-center gap-3 font-bold text-primary">
-                <h2>{trip?.tripDetail?.origin}</h2>
-                <ArrowRight className="text-black font-light" />
-                <h2>{trip?.tripDetail?.destination}</h2>
-              </div>
-            </div>
+            <MyTripCard key = {idx} trip = {trip}/>
           ))
         }
       </div>
