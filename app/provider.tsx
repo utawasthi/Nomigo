@@ -6,6 +6,8 @@ import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
 import { useUser } from '@clerk/nextjs';
 import { UserContext } from '@/context/UserContext';
+import { TripContextType, TripDetailContext } from '@/context/TripDetailContext';
+import { TripInfo } from './create-new-trip/_components/ChatBox';
 
 function Provider({
   children,
@@ -18,6 +20,7 @@ function Provider({
   const {user} = useUser();
   
   const [userDetails , setUserDetails] = useState<any>();
+  const [tripDetailInfo , setTripDetailInfo] = useState<TripInfo | null>(null);
 
   const createNewUser = async () => {
     if(user){
@@ -38,10 +41,12 @@ function Provider({
 
   return (
     <UserContext.Provider value = {{userDetails , setUserDetails}}>
-      <div>
-        <Header/>
-        {children}
-      </div>
+      <TripDetailContext.Provider value = {{tripDetailInfo , setTripDetailInfo}}>
+        <div>
+          <Header/>
+          {children}
+        </div>
+      </TripDetailContext.Provider>
     </UserContext.Provider>
   )
 }
@@ -50,4 +55,8 @@ export default Provider
 
 export const useUserDetail = () => {
   return useContext(UserContext);
+}
+
+export const useTripDetail = () : TripContextType | undefined => {
+  return useContext(TripDetailContext);
 }

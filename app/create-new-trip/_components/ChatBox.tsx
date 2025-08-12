@@ -15,7 +15,7 @@ import TripDuration from './TripDuration'
 import FinalTrip from './FinalTrip';
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
-import { useUserDetail } from '@/app/provider';
+import { useTripDetail, useUserDetail } from '@/app/provider';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface Msg {
@@ -77,6 +77,8 @@ function ChatBox() {
   const [tripDetails , setTripDetails] = useState<TripInfo>();
 
   const {userDetails , setUserDetails} = useUserDetail();
+  // @ts-ignore
+  const {tripDetailInfo , setTripDetailInfo} = useTripDetail();
   // console.log("userDetails from ChatBox ------->\n" , userDetails);
 
   const saveTripDetail = useMutation(api.tripDetails.CreateTripDetail);
@@ -90,6 +92,10 @@ function ChatBox() {
       handleOnSend();
     }
   } , [messages]);
+
+  useEffect(() => {
+
+  } , []);
 
   const renderGenUI = (ui : string) => {
     if(ui === 'budget'){
@@ -144,6 +150,8 @@ function ChatBox() {
       }
       else{
         setTripDetails(response?.data?.trip_plan);
+        setTripDetailInfo(response?.data?.trip_plan);
+        console.log("trip detail info ---> \n" , tripDetailInfo);
         await saveTripDetail({
           tripDetail : response?.data?.trip_plan,
           tripId : uuidv4(),
@@ -158,7 +166,6 @@ function ChatBox() {
     }
   };
 
-  
   return (
     <div className = 'h-[85vh] flex flex-col'>
 
