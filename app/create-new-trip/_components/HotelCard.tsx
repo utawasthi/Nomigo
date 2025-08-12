@@ -18,8 +18,8 @@ function HotelCard({hotel} : {hotel : Hotel}) {
     });
     console.log(result?.data);
     // in response i get displayName , id and array of photos
-    setPhotoUrl(result?.data);
-
+    if(result?.data?.error) console.log("error aa gyi --> \n" , result?.data?.error);
+    else setPhotoUrl(result?.data);
   }
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function HotelCard({hotel} : {hotel : Hotel}) {
     <div>
       <div className = 'flex flex-col gap-2'>
         <Image
-          src = {'/demo-hotel.jpg'}
+          src = {photoUrl ? photoUrl : '/demo-hotel.jpg'}
           alt = {'demo-hotel'}
           height = {200}
           width = {400}
