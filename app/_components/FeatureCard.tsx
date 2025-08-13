@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 interface FeatureType {
-  image : string;
+  image? : string;
   title : string;
   content : string;
   color : string;
@@ -14,13 +14,13 @@ function FeatureCard({item} : {item : FeatureType}) {
       style = {{backgroundColor : item.color}}
     >
       <div className = 'flex justify-center gap-4 items-center'>
-        <Image
+        {item.image && <Image
           src = {item.image}
           alt = 'feature-image'
           height = {110}
           width = {110}
           className = 'object-cover bg-white rounded-full'
-        />
+        />}
         <h2 className = 'text-xl font-extrabold'>
           {item.title}
         </h2>
