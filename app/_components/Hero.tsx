@@ -1,14 +1,13 @@
 "use client"
 
-import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 import { Button } from '@/components/ui/button'
-import { Textarea } from '@/components/ui/textarea'
 import { useUser } from '@clerk/nextjs'
-import { ArrowDown, Globe2, Landmark, Plane, Send, TramFront, TreePineIcon } from 'lucide-react'
+import {Globe2, Landmark, Plane,TramFront,} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import TestimonialCard from './TestimonialCard'
 
 export const suggestions = [
   {
@@ -27,6 +26,30 @@ export const suggestions = [
     title : 'Adventure destination',
     icon : <Globe2 className = 'text-blue-400 h-4 w-4'/>
   }
+];
+
+const testimonials = [
+  {
+    name : 'David Jordan',
+    avatar : '/img1.jpg',
+    category : 'Digital Nomad',
+    rating : 5,
+    content : 'Trip Planner AI saves time and stress by aiding travel planning, relieving indecision or uncertainty.'
+  },
+  {
+    name : 'David Jordan',
+    avatar : '/img1.jpg',
+    category : 'Digital Nomad',
+    rating : 5,
+    content : 'Trip Planner AI saves time and stress by aiding travel planning, relieving indecision or uncertainty.'
+  },
+  {
+    name : 'David Jordan',
+    avatar : '/img1.jpg',
+    category : 'Digital Nomad',
+    rating : 4,
+    content : 'Trip Planner AI saves time and stress by aiding travel planning, relieving indecision or uncertainty.'
+  },
 ]
 
 function Hero() {
@@ -209,6 +232,23 @@ function Hero() {
             </div>
           </div>
         </div>
+      </div>
+      <div className = 'mt-20 flex flex-col items-center gap-3 justify-center'>
+        <h1 className = 'text-2xl font-bold'>
+          Don't take our word for it
+        </h1>
+        <p className = 'text-gray-500 text-sm md:text-base'>
+          See what our users have to say about revolutionizing their travel experiences with Trip Planner AI.
+        </p>
+         <div className = 'px-10 grid grid-cols-6 gap-5'>
+          {
+            testimonials.map((item , idx) => (
+              <TestimonialCard
+                key = {idx} item = {item}
+              />
+            ))
+          }
+         </div>
       </div>
     </div>
   )
