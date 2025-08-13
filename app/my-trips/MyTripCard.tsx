@@ -13,7 +13,7 @@ function MyTripCard({trip} : {trip : myTripType}) {
     const result = await axios.post('/api/google-place-detail',{
       placeName : trip?.tripDetail?.destination
     });
-    console.log(result?.data);
+    // console.log(result?.data);
     // in response i get displayName , id and array of photos
     if(result?.data?.error) console.log("error aa gyi --> \n" , result?.data?.error);
     else setPhotoUrl(result?.data);

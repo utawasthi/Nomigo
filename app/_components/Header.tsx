@@ -11,9 +11,6 @@ const menuOptions = [
     path : '/'
   },
   {
-    name : 'Pricing',
-    path : '/pricing'
-  },{
     name : 'Contact Us',
     path : '/contact-us'
   }
