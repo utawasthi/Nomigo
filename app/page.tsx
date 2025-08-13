@@ -2,6 +2,7 @@ import Image from "next/image";
 import Hero from "./_components/Hero";
 import { PopularCityList } from "./_components/PopularCityList";
 import CustomItineraries from "./_components/CustomItineraries";
+import Footer from "./_components/Footer";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
      <Hero/>
      <PopularCityList/>
      <CustomItineraries/>
+     <Footer/>
     </div>
   );
 }
