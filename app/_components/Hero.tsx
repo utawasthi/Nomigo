@@ -30,27 +30,51 @@ export const suggestions = [
 
 const testimonials = [
   {
-    name : 'David Jordan',
-    avatar : '/img1.jpg',
-    category : 'Digital Nomad',
-    rating : 5,
-    content : 'Trip Planner AI saves time and stress by aiding travel planning, relieving indecision or uncertainty.'
+    name: 'Akshit Singh',
+    avatar: '/img5.jpg',
+    category: 'Adventure Seeker',
+    rating: 5,
+    color: '#f8f4ec', // soft beige
+    content:
+      'Trip Planner AI made my Patagonia hiking journey seamless. Every day felt like a new discovery, with hidden trails and breathtaking views.',
   },
   {
-    name : 'David Jordan',
-    avatar : '/img1.jpg',
-    category : 'Digital Nomad',
-    rating : 5,
-    content : 'Trip Planner AI saves time and stress by aiding travel planning, relieving indecision or uncertainty.'
+    name: 'Michael Ross',
+    avatar: '/img2.jpg',
+    category: 'Family Traveler',
+    rating: 4,
+    color: '#fff3e6', // light peach
+    content:
+      'Planning for a family of four is no small task, but this tool made our Italy trip stress-free. Everyone — even the kids — had something to enjoy.',
   },
   {
-    name : 'David Jordan',
-    avatar : '/img1.jpg',
-    category : 'Digital Nomad',
-    rating : 4,
-    content : 'Trip Planner AI saves time and stress by aiding travel planning, relieving indecision or uncertainty.'
+    name: 'Jessica Pearson',
+    avatar: '/img3.jpg',
+    category: 'Cultural Explorer',
+    rating: 5,
+    color: '#f2f0fc', // soft lavender
+    content:
+      'From art museums in Paris to street food in Bangkok, Trip Planner AI captured my love for culture and crafted a trip that felt personal.',
   },
-]
+  {
+    name: 'Daniel Hardman',
+    avatar: '/img4.jpg',
+    category: 'Solo Backpacker',
+    rating: 5,
+    color: '#eaf7f1', // soft mint green
+    content:
+      'I love spontaneous travel, but still need a plan. This AI balanced must-see spots with time for exploring at my own pace.',
+  },
+  {
+    name: 'Harvey Spector',
+    avatar: '/img1.jpg',
+    category: 'Luxury Traveler',
+    rating: 4,
+    color: '#fef7e5', // warm pale yellow
+    content:
+      'The curated hotel and fine dining suggestions were flawless. I just wish I had discovered this tool years ago.',
+  },
+];
 
 function Hero() {
 
@@ -238,9 +262,9 @@ function Hero() {
           Don't take our word for it
         </h1>
         <p className = 'text-gray-500 text-sm md:text-base'>
-          See what our users have to say about revolutionizing their travel experiences with Trip Planner AI.
+          See what our users have to say about revolutionizing their travel experiences with <strong className = 'text-primary'>Nomigo.</strong>
         </p>
-         <div className = 'px-10 grid grid-cols-6 gap-5'>
+         <div className = 'px-10 mt-5 grid grid-cols-6 gap-5'>
           {
             testimonials.map((item , idx) => (
               <TestimonialCard

@@ -1,17 +1,20 @@
-
-  // {
-  //   name : 'David Jordan',
-  // avatar : '/img1.jpg',
-  //   category : 'Digital Nomad',
-  //   rating : '5',
-  //   content : 'Trip Planner AI saves time and stress by aiding travel planning, relieving indecision or uncertainty.'
-  // },
-
 import Image from "next/image"
 
-function TestimonialCard({item} : {item : any}) {
+interface testimonialType {
+  name : string;
+  avatar : string;
+  category : string;
+  rating : number;
+  color : string;
+  content : string;
+}
+
+function TestimonialCard({item}: {item : testimonialType}) {
   return (
-    <div className = 'border-1 col-span-6 md:col-span-2 p-5 rounded-3xl'>
+    <div 
+      className = 'border-1 col-span-6 md:col-span-2 p-5 rounded-3xl'
+      style = {{backgroundColor : item.color }}
+    >
       <div className = 'flex items-center gap-5'>
         <Image 
           src = {item.avatar}
