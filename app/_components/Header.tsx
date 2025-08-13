@@ -7,12 +7,12 @@ import React from 'react'
 
 const menuOptions = [
   {
-    name : 'Home',
-    path : '/'
+    name : 'Features',
+    path : '#feature-section'
   },
   {
-    name : 'Contact Us',
-    path : '/contact-us'
+    name : 'Destinations',
+    path : '#destinations'
   }
 ]
 
@@ -27,16 +27,20 @@ function Header() {
     <div className="sticky top-0 z-50 bg-white/30 backdrop-blur-md border-b border-white/20">
       <div className = 'flex justify-between px-3 items-center border-b-1'>
         <div className = 'flex items-center gap-1'>
-          <Image
-            src = {'/logo.png'}
-            alt = {'logo'}
-            width = {70}
-            height = {70}
-            className = 'object-contain'
-          />
-          <h2 className = 'font-extrabold text-3xl text-[#687864]'>
+          <Link href = '/'>
+            <Image
+              src = {'/logo.png'}
+              alt = {'logo'}
+              width = {70}
+              height = {70}
+              className = 'object-contain'
+            />
+          </Link>
+          <Link 
+            href = '/'
+            className = 'hidden sm:block font-extrabold text-3xl text-[#687864]'>
             Nomigo
-          </h2>
+          </Link>
         </div>
         <div className = 'flex justify-center items-center gap-4'>
           {

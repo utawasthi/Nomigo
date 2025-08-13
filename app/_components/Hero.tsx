@@ -227,7 +227,9 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className = 'mt-30 px-10 flex flex-col gap-4 items-center justify-center'>
+      <div 
+        id = "feature-section"
+        className = 'mt-30 px-10 flex flex-col gap-4 items-center justify-center'>
         <h2 className = 'text-2xl text-cyan-700 font-medium'>
           Nomigo Trip Planner
         </h2>

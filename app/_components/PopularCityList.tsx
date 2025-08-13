@@ -10,7 +10,10 @@ export function PopularCityList() {
   ));
 
   return (
-    <div className="w-full h-full pt-20 pb-2">
+    <div 
+      id = "destinations"
+      className="w-full h-full pt-20 pb-2"
+    >
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-3xl font-bold dark:text-neutral-200 font-sans">
           <span
             className="text-4xl font-extrabold bg-clip-text text-transparent"
