@@ -24,16 +24,16 @@ function Header() {
   console.log(path);
 
   return (
-    <div className = 'flex justify-between pt-3 px-3 pb-2 items-center border-b-1'>
+    <div className = 'flex justify-between px-3 items-center border-b-1'>
       <div className = 'flex items-center gap-1'>
         <Image
           src = {'/logo.png'}
           alt = {'logo'}
-          width = {50}
-          height = {50}
-          className = 'p-2 h-[45px] w-[45px]'
+          width = {70}
+          height = {70}
+          className = 'object-contain'
         />
-        <h2 className = 'font-bold text-2xl tracking-wide'>
+        <h2 className = 'font-extrabold text-3xl text-[#687864]'>
           Nomigo
         </h2>
       </div>

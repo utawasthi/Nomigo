@@ -12,7 +12,7 @@ interface testimonialType {
 function TestimonialCard({item}: {item : testimonialType}) {
   return (
     <div 
-      className = 'border-1 col-span-6 md:col-span-2 p-5 rounded-3xl'
+      className = 'border-1 shadow-xl col-span-6 md:col-span-2 p-5 rounded-3xl'
       style = {{backgroundColor : item.color }}
     >
       <div className = 'flex items-center gap-5'>

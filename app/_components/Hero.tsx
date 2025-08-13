@@ -158,7 +158,7 @@ function Hero() {
             href = {'/create-new-trip'}
           >
             <Button
-              className = 'my-10 py-8 px-24 text-lg font-light rounded-full cursor-pointer shadow-2xl'
+              className = 'my-10 mt-20 py-8 px-24 text-lg font-light rounded-full cursor-pointer shadow-2xl'
             >
               <TramFront className = 'text-lg mr-1'/> 
               <p className = 'pr-2'>Create a new trip</p>
@@ -167,7 +167,7 @@ function Hero() {
       </div>
       <div className = 'lg:h-[90vh]'>
         <h1 className = 'text-3xl md:text-4xl lg:text-5xl text-[#685864] font-extrabold text-center mb-10'>
-          Your <span className = 'text-[#5085a5]'>AI Powered</span> Trip
+          Your <span className = 'text-[#5085a5] border-b-3 border-primary'>AI Powered</span> Trip
         </h1>
         <div className = 'flex flex-col px-30 mt-5 gap-3'>
           <div className = 'grid grid-cols-1 lg:grid-cols-2 justify-center items-center'>
