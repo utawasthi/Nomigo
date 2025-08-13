@@ -4,7 +4,9 @@ import HeroVideoDialog from '@/components/magicui/hero-video-dialog'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { useUser } from '@clerk/nextjs'
-import { ArrowDown, Globe2, Landmark, Plane, Send } from 'lucide-react'
+import { ArrowDown, Globe2, Landmark, Plane, Send, TramFront, TreePineIcon } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -45,61 +47,89 @@ function Hero() {
   }
 
   return (
-    <div className = 'flex items-center justify-center'>
+    <div className = 'flex flex-col gap-5 items-center justify-center'>
       <div
-        className = 'mt-24 max-w-3xl w-full text-center'
+        className = 'mt-30 max-w-3xl h-[90vh] w-full text-center'
       >
+        <div className = 'flex justify-center items-center gap-3'>
+          <Image
+            src = {'/avatar.jpg'}
+            alt = {'avatar'}
+            height = {80}
+            width = {80}
+            className = 'h-[70px] w-[70px] rounded-full object-cover'
+          />
+          <h2 className = 'text-gray-600 text-lg'>
+            by <strong className = 'text-primary tracking-wide'>utawasthi</strong> 
+          </h2>
+        </div>
         <h1
-          className = 'font-semibold text-xl md:text-2xl mb-5'
+          className = 'px-5 font-semibold text-5xl md:text-6xl my-10'
         >
-          Hey , I'm Your Personal 
+          Welcome to Nomigo , <br/> an AI Based
           <span className = 'text-[#31708E]'
           > Trip Planner</span>
         </h1>
-        <p className = 'text-lg font-medium wrap-break-word'>
-          Tell me what you want and I'll handle the rest - Flights , Hotels and Trip Planning , all in seconds 
+        <p className = 'text-medium text-gray-500 font-medium wrap-break-word'>
+          From the first spark of wanderlust to the final step of your return, our AI crafts a trip that feels effortless, personal, and unforgettable.
         </p>
-        <div>
-          <div className = 'relative border rounded-2xl m-4 mt-6'>
-            <Textarea 
-             placeholder = 'Create trip from Paris to New York'
-             className = 'w-full h-28 bg-transparent border-none focus-visible:ring-0 resize-none p-4'
-            />
-            <Button 
-              size = {'icon'}
-              className = 'absolute bottom-2 right-2 rounded-full cursor-pointer'
+          <Link
+            href = {'/create-new-trip'}
+          >
+            <Button
+              className = 'my-10 py-8 px-24 text-lg font-light rounded-full cursor-pointer shadow-2xl'
             >
-               <Send 
-                 className = 'h-4 w-4'
-                 onClick = {() => handleOnSend()}
-               />
+              <TramFront className = 'text-lg mr-1'/> 
+              <p className = 'pr-2'>Create a new trip</p>
             </Button>
+          </Link>
+      </div>
+      <div className = 'lg:h-[90vh]'>
+        <h1 className = 'text-3xl md:text-4xl lg:text-5xl text-[#685864] font-extrabold text-center mb-10'>
+          Your <span className = 'text-[#5085a5]'>AI Powered</span> Trip
+        </h1>
+        <div className = 'flex flex-col px-30 mt-5 gap-3'>
+          <div className = 'grid grid-cols-1 lg:grid-cols-2 justify-center items-center'>
+            <div className = 'flex justify-center items-center'>
+              <Image
+                src="/explore.jpg"
+                alt="get-inspired"
+                width={250}
+                height={250}
+                className="object-cover rounded-3xl"
+                unoptimized
+              />
+            </div>
+            <div className = 'px-18 flex flex-col gap-7 items-center justify-center'>
+              <h1 className = 'text-3xl font-bold text-[#685864]'>
+                The most optimal
+              </h1>
+              <div className = 'text-sm text-gray-500 px-5'>
+                Craft your perfect itinerary with Trip Planner AI. Our advanced algorithms take into account your selected explore-sights, dining, and lodging preferences to create the optimal travel plan tailored just for you.
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-center">
+            <div className="px-18 flex flex-col gap-7 items-center justify-center order-2 lg:order-1">
+              <h1 className="text-3xl font-bold text-[#685864]">
+                Get Inspired
+              </h1>
+              <div className="text-sm text-gray-500 px-5">
+                Extract valuable travel insights from Instagram reels and TikToks, explore the mentioned explore-sights, and effortlessly include them in your own adventure with Trip Planner AI.
+              </div>
+            </div>
+            <div className="flex justify-center items-center order-1 lg:order-2">
+              <Image
+                src="/inspire.jpg"
+                alt="travel-map"
+                width={250}
+                height={250}
+                className="object-cover rounded-3xl"
+                unoptimized
+              />
+            </div>
           </div>
         </div>
-        <div className = 'flex gap-5 justify-center items-center'>
-          {
-            suggestions.map((item , idx) => (
-              <div 
-                key = {idx}
-                className = 'flex items-center gap-2 border rounded-full mt-2 p-2 hover:bg-[#8FC1E3] cursor-pointer'
-              >
-                {item.icon}
-                <h2 className = 'text-sm'>{item.title}</h2>
-              </div>
-            ))
-          }
-        </div>
-        <h2 className = 'my-7 mt-14 flex justify-center gap-2 '>
-          Not sure where to start ? 
-          <strong>See how it works</strong> <ArrowDown/>
-        </h2>
-        <HeroVideoDialog
-          className="block dark:hidden p-4 m-4s"
-          animationStyle="from-center"
-          videoSrc="https://www.youtube.com/watch?v=T-oy3tsCJas&t=304s"
-          thumbnailSrc="https://i.ytimg.com/vi/T-oy3tsCJas/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDP9rMhV1xiha48of092SDJHiBq9g"
-          thumbnailAlt="I wanted to see Germany"
-        />
       </div>
     </div>
   )
