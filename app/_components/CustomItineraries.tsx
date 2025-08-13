@@ -30,7 +30,7 @@ const features = [
 
 function CustomItineraries() {
   return (
-    <div className = 'border-t-2 p-6 flex flex-col gap-5 border-b-2 m-3'>
+    <div className = 'border-t-[0.1px] border-black p-6 flex flex-col gap-5 border-b-[0.1px] m-3'>
       <h2 className = 'mt-6 text-center text-3xl font-bold'>
         Customized Itineraries for Every Travel Dream
       </h2>
