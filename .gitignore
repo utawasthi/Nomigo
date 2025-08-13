@@ -41,5 +41,12 @@ yarn-error.log*
 next-env.d.ts
 
 #api 
-
 app/api
+
+#crucial components
+
+app/_components/Hero.tsx
+app/_components/PopularCityList.tsx
+app/_components/TestimonialCard.tsx
+
+app/create-new-trip
