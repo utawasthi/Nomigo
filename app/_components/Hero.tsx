@@ -35,7 +35,7 @@ const testimonials = [
     avatar: '/img5.jpg',
     category: 'Adventure Seeker',
     rating: 5,
-    color: '#f8f4ec', // soft beige
+    color: '#FAFBFC', // lightened from #F7F9FB
     content:
       'Trip Planner AI made my Patagonia hiking journey seamless. Every day felt like a new discovery, with hidden trails and breathtaking views.',
   },
@@ -44,7 +44,7 @@ const testimonials = [
     avatar: '/img2.jpg',
     category: 'Family Traveler',
     rating: 4,
-    color: '#fff3e6', // light peach
+    color: '#D6EAF4', // lightened from #8FC1E3
     content:
       'Planning for a family of four is no small task, but this tool made our Italy trip stress-free. Everyone — even the kids — had something to enjoy.',
   },
@@ -53,7 +53,7 @@ const testimonials = [
     avatar: '/img3.jpg',
     category: 'Cultural Explorer',
     rating: 5,
-    color: '#f2f0fc', // soft lavender
+    color: '#BDD4E5', // lightened from #5085A5
     content:
       'From art museums in Paris to street food in Bangkok, Trip Planner AI captured my love for culture and crafted a trip that felt personal.',
   },
@@ -62,7 +62,7 @@ const testimonials = [
     avatar: '/img4.jpg',
     category: 'Solo Backpacker',
     rating: 5,
-    color: '#eaf7f1', // soft mint green
+    color: '#AFC2B6', // lightened from #687864
     content:
       'I love spontaneous travel, but still need a plan. This AI balanced must-see spots with time for exploring at my own pace.',
   },
@@ -71,7 +71,7 @@ const testimonials = [
     avatar: '/img1.jpg',
     category: 'Luxury Traveler',
     rating: 4,
-    color: '#fef7e5', // warm pale yellow
+    color: '#E3EFF6', // softer neutral tone
     content:
       'The curated hotel and fine dining suggestions were flawless. I just wish I had discovered this tool years ago.',
   },
