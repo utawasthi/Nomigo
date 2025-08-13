@@ -40,12 +40,13 @@ function Header() {
       <div className = 'flex justify-center items-center gap-4'>
         {
           menuOptions.map((item , idx) => (
-            <div 
+            <Link
+              href = {item.path} 
               key = {idx}
               className = 'font-semibold text-md hover:scale-105 transition-al cursor-pointer hover:border-b hover:border-[#687864]'
             >
               {item.name}
-            </div>
+            </Link>
           ))
         }
       </div>
