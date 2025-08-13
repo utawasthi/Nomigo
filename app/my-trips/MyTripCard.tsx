@@ -29,7 +29,7 @@ function MyTripCard({trip} : {trip : myTripType}) {
      className = 'p-3 flex flex-col gap-2 shadow-2xl rounded-xl'
     >
       <Image
-        src = {photoUrl ? photoUrl : '/demo-hotel.jpg'}
+        src = {photoUrl ? photoUrl : '/loading.jpg'}
         alt = {'demo-hotel'}
         height = {400}
         width = {400}
