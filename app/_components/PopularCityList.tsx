@@ -12,8 +12,7 @@ export function PopularCityList() {
   return (
     <div className="w-full h-full py-20">
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-3xl font-bold dark:text-neutral-200 font-sans">
-        <p>
-          <h2
+          <span
             className="text-4xl font-extrabold bg-clip-text text-transparent"
             style={{
               backgroundImage:
@@ -21,8 +20,7 @@ export function PopularCityList() {
             }}
           >
             Popular destinations you must consider to visit...
-          </h2>
-        </p>
+          </span>
       </h2>
         <Carousel items={cards} />
     </div>
