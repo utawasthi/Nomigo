@@ -14,9 +14,11 @@ export function PopularCityList() {
       <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-3xl font-bold dark:text-neutral-200 font-sans">
         <p>
           <h2
-            className="text-4xl font-extrabold 
-                      bg-gradient-to-r from-[#687864] via-[#31708E] via-[#5085A5] via-[#8FC1E3] to-[#F7F9FB]
-                      bg-clip-text text-transparent"
+            className="text-4xl font-extrabold bg-clip-text text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, #687864, #31708E, #5085A5, #8FC1E3, #F7F9FB)",
+            }}
           >
             Popular destinations you must consider to visit...
           </h2>
