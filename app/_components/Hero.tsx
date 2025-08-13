@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import TestimonialCard from './TestimonialCard'
+import FeatureCard from './FeatureCard'
 
 export const suggestions = [
   {
@@ -75,6 +76,39 @@ const testimonials = [
       'The curated hotel and fine dining suggestions were flawless. I just wish I had discovered this tool years ago.',
   },
 ];
+
+const featureCard = [
+  {
+    image: '/explore.jpg',
+    title: 'Optimal Route Planning',
+    content:
+      'Our AI analyzes your preferences to design the most efficient route, helping you see more in less time.',
+    color: '#FAFBFC', // softer than #F7F9FB
+  },
+  {
+    image: '/personalized.jpg',
+    title: 'Personalized Itineraries',
+    content:
+      'Get travel plans tailored to your interests — from hidden gems to iconic landmarks, every day feels unique.',
+    color: '#B6D9EC', // softer than #8FC1E3
+  },
+  {
+    image: '/budget.jpg',
+    title: 'Smart Budget Management',
+    content:
+      'Set your budget and let our AI recommend stays, activities, and meals that fit without compromising quality.',
+    color: '#7FA5BF', // softer than #5085A5
+  },
+  {
+    image: '/realtime.jpg',
+    title: 'Real-Time Travel Adjustments',
+    content:
+      'Plans change? Our system adapts instantly, giving you updated routes and suggestions on the go.',
+    color: '#8FA394', // softer than #687864
+  },
+];
+
+
 
 function Hero() {
 
@@ -187,74 +221,11 @@ function Hero() {
           Say goodbye to the stress of planning and hello to personalized recommendations, efficient itineraries, and seamless dining experiences.
         </p>
         <div className = 'px-10 mt-20 grid grid-col-1 md:grid-cols-2 gap-5'>
-          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
-            <div className = 'flex justify-center gap-4 items-center'>
-              <Image
-                src = {'/explore.jpg'}
-                alt = 'explore'
-                height = {110}
-                width = {110}
-                className = 'object-cover'
-              />
-              <h2 className = 'text-xl font-extrabold'>
-                Optimal Route Planning
-              </h2>
-            </div>
-            <div className = 'text-gray-500 text-sm lg:text-base'>
-              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
-            </div>
-          </div>
-          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
-            <div className = 'flex justify-center gap-4 items-center'>
-              <Image
-                src = {'/explore.jpg'}
-                alt = 'explore'
-                height = {110}
-                width = {110}
-                className = 'object-cover'
-              />
-              <h2 className = 'text-xl font-extrabold'>
-                Optimal Route Planning
-              </h2>
-            </div>
-            <div className = 'text-gray-500 text-base lg:text-lg'>
-              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
-            </div>
-          </div>
-          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
-            <div className = 'flex justify-center gap-4 items-center'>
-              <Image
-                src = {'/explore.jpg'}
-                alt = 'explore'
-                height = {110}
-                width = {110}
-                className = 'object-cover'
-              />
-              <h2 className = 'text-xl font-extrabold'>
-                Optimal Route Planning
-              </h2>
-            </div>
-            <div className = 'text-gray-500 text-base lg:text-lg'>
-              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
-            </div>
-          </div>
-          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
-            <div className = 'flex justify-center gap-4 items-center'>
-              <Image
-                src = {'/explore.jpg'}
-                alt = 'explore'
-                height = {110}
-                width = {110}
-                className = 'object-cover'
-              />
-              <h2 className = 'text-xl font-extrabold'>
-                Optimal Route Planning
-              </h2>
-            </div>
-            <div className = 'text-gray-500 text-base lg:text-lg'>
-              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
-            </div>
-          </div>
+          {
+            featureCard.map((item , idx) => (
+              <FeatureCard key = {idx} item = {item} />
+            ))
+          }
         </div>
       </div>
       <div className = 'mt-20 flex flex-col items-center gap-3 justify-center'>
