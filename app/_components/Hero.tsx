@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import TestimonialCard from './TestimonialCard'
 import FeatureCard from './FeatureCard'
+import { Marquee } from '@/components/magicui/marquee'
 
 export const suggestions = [
   {
@@ -108,6 +109,22 @@ const featureCard = [
   },
 ];
 
+const marqueeCompanies = [
+  { name: 'GlobeTrekker', color: '#687864' },   // deep muted green
+  { name: 'WanderNest', color: '#5085A5' },     // dark blue-teal
+  { name: 'Skyward Journeys', color: '#31708E' }, // deeper slate blue
+  { name: 'Roamify', color: '#37515F' },        // darkest blue-gray
+  { name: 'Nomadix', color: '#3E4C59' },        // charcoal with blue tint
+  { name: 'TrailBliss', color: '#687864' },
+  { name: 'JetSetGo', color: '#5085A5' },
+  { name: 'MapleMiles', color: '#31708E' },
+  { name: 'VistaVoyage', color: '#37515F' },
+  { name: 'TerraQuest', color: '#3E4C59' },
+  { name: 'CloudCompass', color: '#687864' },
+  { name: 'Wayfarely', color: '#5085A5' },
+  { name: 'Pathfinders Co.', color: '#31708E' },
+  { name: 'OrbitOasis', color: '#37515F' }
+];
 
 
 function Hero() {
@@ -244,6 +261,24 @@ function Hero() {
             ))
           }
          </div>
+      </div>
+      <div className = 'mt-40 mx-20 overflow-x-hidden-hidden'>
+        <h2 className = 'font-extrabold text-3xl text-center'>
+          Our Trusted Partners
+        </h2>
+        <Marquee className ='my-20 px-20'>
+          {
+            marqueeCompanies.map((item , idx) => (
+              <div 
+                key = {idx}
+                className = 'text-3xl font-extrabold'
+                style = {{color : item.color}}
+              >
+                {item.name}
+              </div>
+            ))
+          }
+        </Marquee>
       </div>
     </div>
   )

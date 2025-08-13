@@ -4,7 +4,7 @@ import { PopularCityList } from "./_components/PopularCityList";
 
 export default function Home() {
   return (
-    <div>
+    <div className = 'overflow-x-hidden'>
      <Hero/>
      <PopularCityList/>
     </div>
