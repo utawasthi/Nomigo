@@ -97,7 +97,6 @@ function Hero() {
                 width={250}
                 height={250}
                 className="object-cover rounded-3xl"
-                unoptimized
               />
             </div>
             <div className = 'px-18 flex flex-col gap-7 items-center justify-center'>
@@ -125,8 +124,88 @@ function Hero() {
                 width={250}
                 height={250}
                 className="object-cover rounded-3xl"
-                unoptimized
               />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className = 'mt-30 px-10 flex flex-col gap-4 items-center justify-center'>
+        <h2 className = 'text-lg text-cyan-700 font-medium'>
+          Nomigo Trip Planner
+        </h2>
+        <h2 className = 'text-3xl font-extrabold '>
+          The only tool you'll ever need!
+        </h2>
+        <p className = 'text-sm text-gray-600 tracking-wide text-center'>
+          Say goodbye to the stress of planning and hello to personalized recommendations, efficient itineraries, and seamless dining experiences.
+        </p>
+        <div className = 'px-10 mt-20 grid grid-col-1 md:grid-cols-2 gap-5'>
+          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
+            <div className = 'flex justify-center gap-4 items-center'>
+              <Image
+                src = {'/explore.jpg'}
+                alt = 'explore'
+                height = {110}
+                width = {110}
+                className = 'object-cover'
+              />
+              <h2 className = 'text-xl font-extrabold'>
+                Optimal Route Planning
+              </h2>
+            </div>
+            <div className = 'text-gray-500 text-sm lg:text-base'>
+              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
+            </div>
+          </div>
+          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
+            <div className = 'flex justify-center gap-4 items-center'>
+              <Image
+                src = {'/explore.jpg'}
+                alt = 'explore'
+                height = {110}
+                width = {110}
+                className = 'object-cover'
+              />
+              <h2 className = 'text-xl font-extrabold'>
+                Optimal Route Planning
+              </h2>
+            </div>
+            <div className = 'text-gray-500 text-base lg:text-lg'>
+              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
+            </div>
+          </div>
+          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
+            <div className = 'flex justify-center gap-4 items-center'>
+              <Image
+                src = {'/explore.jpg'}
+                alt = 'explore'
+                height = {110}
+                width = {110}
+                className = 'object-cover'
+              />
+              <h2 className = 'text-xl font-extrabold'>
+                Optimal Route Planning
+              </h2>
+            </div>
+            <div className = 'text-gray-500 text-base lg:text-lg'>
+              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
+            </div>
+          </div>
+          <div className = 'border-1 shadow-xl rounded-2xl p-5'>
+            <div className = 'flex justify-center gap-4 items-center'>
+              <Image
+                src = {'/explore.jpg'}
+                alt = 'explore'
+                height = {110}
+                width = {110}
+                className = 'object-cover'
+              />
+              <h2 className = 'text-xl font-extrabold'>
+                Optimal Route Planning
+              </h2>
+            </div>
+            <div className = 'text-gray-500 text-base lg:text-lg'>
+              Our AI algorithms analyze your preferences to craft the most efficient route, saving you time and effort.
             </div>
           </div>
         </div>
