@@ -228,10 +228,10 @@ function Hero() {
         </div>
       </div>
       <div className = 'mt-30 px-10 flex flex-col gap-4 items-center justify-center'>
-        <h2 className = 'text-lg text-cyan-700 font-medium'>
+        <h2 className = 'text-2xl text-cyan-700 font-medium'>
           Nomigo Trip Planner
         </h2>
-        <h2 className = 'text-3xl font-extrabold '>
+        <h2 className = 'text-3xl md:text-4xl font-extrabold '>
           The only tool you'll ever need!
         </h2>
         <p className = 'text-sm text-gray-600 tracking-wide text-center'>
@@ -245,8 +245,8 @@ function Hero() {
           }
         </div>
       </div>
-      <div className = 'mt-20 flex flex-col items-center gap-3 justify-center'>
-        <h1 className = 'text-2xl font-bold'>
+      <div className = 'mt-40 flex flex-col items-center gap-3 justify-center'>
+        <h1 className = 'text-3xl md:text-4xl font-bold'>
           Don't take our word for it
         </h1>
         <p className = 'text-gray-500 text-sm md:text-base'>
@@ -262,11 +262,14 @@ function Hero() {
           }
          </div>
       </div>
-      <div className = 'mt-40 mx-20 overflow-x-hidden-hidden'>
+      <div className = 'my-40 mx-20 overflow-x-hidden-hidden'>
         <h2 className = 'font-extrabold text-3xl text-center'>
           Our Trusted Partners
         </h2>
-        <Marquee className ='my-20 px-20'>
+        <Marquee 
+          className ='mt-20 px-20 cursor-pointer'
+          pauseOnHover = {true}
+        >
           {
             marqueeCompanies.map((item , idx) => (
               <div 
